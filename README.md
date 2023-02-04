@@ -10,7 +10,7 @@ Let's create our own TODO List with local MongoDB database!
 
 ## Screenshots
 
-![Here's home page of my TODO Lists](image_url)
+![Here's home page of my TODO Lists](https://github.com/wallacezzzzz007/todolist/blob/V2-withDB/images/todolist.png)
 
 ## Technologies Used
 
