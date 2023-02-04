@@ -1,21 +1,40 @@
-<%- include("header") -%>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>To Do List</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="box" id="heading">
+      <h1><%= kindOfDay %></h1>
+    </div>
 
-  <div class="box" id="heading">
-    <h1> <%= listTitle %> </h1>
-  </div>
-
-  <div class="box">
-    <% for (let i=0; i<newListItems.length; i++) { %>
-      <div class="item">
-        <input type="checkbox">
-        <p><%=  newListItems[i]  %></p>
-      </div>
-      <% } %>
-
-      <form class="item" action="/" method="post">
-        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
-        <button type="submit" name="list">+</button>
+    <div class="box">
+      <%newListItem.forEach((item) => {%>
+      <form action="/delete" method="post">
+        <div class="item">
+          <input
+            type="checkbox"
+            name="checkbox"
+            onchange="this.form.submit()"
+            value="<%= item._id %> "
+          />
+          <p><%= item.name %></p>
+        </div>
+        <input type="hidden" name="listTitle" value="<%= kindOfDay %> " />
       </form>
-  </div>
+      <%}); %>
 
-<%- include("footer") -%>
+      <form action="/" method="post" class="item">
+        <input
+          type="text"
+          name="newItem"
+          placeholder="New Item?"
+          autocomplete="off"
+        />
+        <button type="submit" name="button" value="<%= kindOfDay %> ">+</button>
+      </form>
+    </div>
+  </body>
+</html>
